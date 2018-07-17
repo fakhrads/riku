@@ -7,7 +7,7 @@ line_bot_api = LineBotApi('YOUR CHANNEL ACCESS TOKEN')
 handler = WebhookHandler('YOUR CHANEL SCREET')
 ```
 #add me for ask something
-<a href="https://line.me//ti/p/~arsy22bai"><img height="36" border="0" alt="Tambah Teman" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a>
+line id : arsy22bai
 
 1. USE [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)、[Git](https://git-scm.com/)
 2. or you can install in ubuntu
