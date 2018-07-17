@@ -25,8 +25,8 @@ cd appname
 6. Set git remote in heroku
 ```shell＝
 heroku git:remote -a HEROKU_APP_NAME
-```
 nb : HEROKU_APP_NAME adalah nama app kalian diheroku
+```
 7. add it
 ```shell
 git add .
@@ -34,6 +34,7 @@ git add .
 8. then commit
 ```shell
 git commit -m "arsybai"
+nb. "arsybai" bisa diubah sesuai selera kalian
 ```
 nb. "arsybai" bisa diubah sesuai selera kalian
 9. Push it to heroku
