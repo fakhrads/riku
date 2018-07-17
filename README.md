@@ -6,7 +6,7 @@ line_bot_api = LineBotApi('YOUR CHANNEL ACCESS TOKEN')
 # Channel Secret
 handler = WebhookHandler('YOUR CHANEL SCREET')
 ```
-##add me for ask something
+## add me for ask something
 line id : arsy22bai
 
 1. USE [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)、[Git](https://git-scm.com/)
