@@ -36,7 +36,6 @@ git add .
 git commit -m "arsybai"
 nb. "arsybai" bisa diubah sesuai selera kalian
 ```
-nb. "arsybai" bisa diubah sesuai selera kalian
 9. Push it to heroku
 ```shell
 git push heroku master
@@ -246,3 +245,8 @@ message = TemplateSendMessage(
 )
 line_bot_api.reply_message(event.reply_token, message)
 ```
+# Thanks to
+- Allah swt
+- Mom and dad
+- stack overflow
+- all my friends
