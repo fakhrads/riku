@@ -20,7 +20,7 @@ from linebot.models import (
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
-    PostbackAction, DatetimePickerAction,
+    PostbackAction, VideoMessage, DatetimePickerAction,
     CarouselTemplate, CarouselColumn, PostbackEvent,
     StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
     ImageMessage, AudioMessage, FileMessage,
