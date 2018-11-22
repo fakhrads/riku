@@ -51,25 +51,58 @@ def callback():
         abort(400)
     return 'OK'
 
+@handler.add(JoinEvent)
+def handle_join(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Joined this ' + event.source.type + '))
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text #simplify for receove message
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
+    roomid = event.source.room_id #get room id
 #=====[ LEAVE GROUP OR ROOM ]==========[ ARSYBAI ]======================
     if text.lower() == 'bye':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text='Leaving group'))
-            line_bot_api.leave_group(event.source.group_id)
+                event.reply_token, TextSendMessage(text='Halo'))
+            line_bot_api.leave_group(gid)
         elif isinstance(event.source, SourceRoom):
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text='Leaving group'))
-            line_bot_api.leave_room(event.source.room_id)
+            line_bot_api.leave_room(roomid)
         else:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
+
+    elif text.lower().startswith() == '/iginfo':
+        sep = text.split(" ")
+        search = text.replace(sep[0] + " ","")
+        r = requests.get("https://rest.farzain.com/api/ig_profile.php?apikey=Aovsyfk9UmvCAag1w5rupglGb&id={}".format(search))
+        data = r.text
+        data = json.loads(data)
+        buttons_template = TemplateSendMessage(
+            alt_text = 'instagram profile',
+            template = ButtonsTemplate(
+                title = data["info"]["username"],
+                text = data["info"]["bio"],
+                thumbnailImageUrl = data["info"]["profile_pict"],
+                imageAspectRatio = "rectangle",
+                imageSize = "cover",
+                imageBackgroundColor"= "#FFFFFF",
+                actions=[
+                    MessageTemplateAction(
+                        label = 'link',
+                        uri = 'https://www.instagram.com/{}'.format(search)
+                    ),
+                ]
+            )
+        )
+
+        line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ TEMPLATE MESSAGE ]=============[ ARSYBAI ]======================
     elif text.lower() == '/template':
         buttons_template = TemplateSendMessage(
@@ -217,7 +250,7 @@ def handle_message(event):
                     SeparatorComponent(),
                     # websiteAction
                     ButtonComponent(
-                        style='link',
+                        style='Primary',
                         height='sm',
                         action=URIAction(label='WEBSITE', uri="https://example.com")
                     )
