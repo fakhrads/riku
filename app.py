@@ -23,7 +23,7 @@ from linebot.models import (
     PostbackAction, DatetimePickerAction,
     CarouselTemplate, CarouselColumn, PostbackEvent,
     StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
-    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    ImageMessage, AudioMessage, FileMessage,
     UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
     FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
@@ -33,9 +33,9 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('YOUR CHANNEL ACCESS TOKEN')
+line_bot_api = LineBotApi('BJZ1tzDFXT7bvqpdP2ACTYaFKykHzVw5ZuWgrLYMkEkC+tKdm7EG0iTaWMeGlYjH0lSmFpamGvngpf03db9f3rsyRwQIDqBIKXH8NlJsmceYVhKLsLCkdJu5w8XRORr2hiRilc3tP9NjvZr6pj88DAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('YOUR CHANEL SCREET')
+handler = WebhookHandler('9579953429d30455b3e5854c7f415a71')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
@@ -93,7 +93,7 @@ def handle_message(event):
                 ]
             )
         )
-        
+
         line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========[ ARSYBAI ]======================
     elif text == '/carousel':
