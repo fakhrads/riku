@@ -57,7 +57,7 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
 #=====[ LEAVE GROUP OR ROOM ]==========[ ARSYBAI ]======================
-    if text == 'bye':
+    if text.lower() == 'bye':
         if isinstance(event.source, SourceGroup):
             line_bot_api.reply_message(
                 event.reply_token, TextSendMessage(text='Leaving group'))
@@ -71,7 +71,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============[ ARSYBAI ]======================
-    elif text == '/template':
+    elif text.lower() == '/template':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
@@ -96,7 +96,7 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========[ ARSYBAI ]======================
-    elif text == '/carousel':
+    elif text.lower() == '/carousel':
         message = TemplateSendMessage(
             alt_text='OTHER MENU',
             template=CarouselTemplate(
@@ -125,8 +125,14 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
+    elif text.lower() == 'image':
+        message = ImageSendMessage(
+        original_content_url='https://example.com/original.jpg',
+        preview_image_url='https://example.com/preview.jpg'
+        )
+        line_bot_api.reply_message(event.reply_token, message)
 #=====[ FLEX MESSAGE ]==========[ ARSYBAI ]======================
-    elif text == 'flex':
+    elif text.lower() == 'flex':
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
